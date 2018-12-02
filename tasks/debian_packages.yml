@@ -1,0 +1,123 @@
+---
+
+# Atualizando todos os pacotes
+
+- name: Atualizando todos os pacotes
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
+  become: true
+  tags:
+    - repo
+    - update
+
+# Pacotes essenciais
+
+- name: Instalando os pacotes essenciais
+  apt:
+    name: "{{ pacotes_essenciais }}"
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - default
+
+
+# Pacotes de Codec
+
+- name: Instalando os pacotes de codecs
+  apt:
+    name: "{{ pacotes_codec }}"
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - codecs
+
+# Pacotes Dev
+
+- name: Instalando os pacotes Dev
+  apt:
+    name: "{{ pacotes_dev }}"
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - dev
+
+
+# Instalação do Google Chrome
+
+- name: Instalando o Google Chrome
+  apt:
+    name: google-chrome-stable
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - chrome
+    - web
+
+
+# Instalação do Opera
+
+- name: Instalando o Opera
+  apt:
+    name: opera-stable
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - opera
+    - web
+
+
+# Instalação do Vivaldi
+
+- name: Instalando o Vivaldi
+  apt:
+    name: vivaldi-stable
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - vivaldi
+    - web
+
+# Instalação o Skype
+
+- name: Instalando o Skype
+  apt:
+    name: skypeforlinux
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - skype
+
+
+# Instalação do Visual Studio Code
+
+- name: Instalando o Visual Studio Code
+  apt:
+    name: code
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - vscode
+    - dev
+
+# Instalação do Ansible
+
+- name: Instalando os pacotes Dev
+  apt:
+    name: ansible
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - ansible
+    - dev

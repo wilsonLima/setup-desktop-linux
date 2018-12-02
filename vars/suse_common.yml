@@ -1,0 +1,43 @@
+---
+
+pacotes_essenciais:
+  - htop 
+  - tlp 
+  - tlp-rdw
+  - vivaldi
+  - uget 
+  - uget-lang
+  - qbittorrent
+  - steam
+  - xine-browser-plugin
+  - flash-player-ppapi
+
+
+pacotes_codecs:
+  - x264 
+  - gstreamer-plugins-bad 
+  - gstreamer-plugins-libav 
+  - gstreamer-plugins-ugly
+  - vlc
+  - smplayer 
+  - smplayer-lang 
+  - smplayer-skins 
+  - smplayer-themes
+  - audacious-lang 
+  - audacious-plugins 
+  - audacious-plugins-lang 
+  - audacious-plugins-extra
+
+pacotes_dev:
+  - meld
+  - git
+  - vim
+  - subversion
+
+pacotes_virtualbox_remove:
+  - virtualbox-guest-kmp-default
+  - virtualbox-guest-tools
+
+pacotes_virtualbox:
+  - virtualbox
+  - virtualbox-qt

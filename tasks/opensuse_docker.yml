@@ -1,0 +1,30 @@
+---
+
+- name: Incluindo variaveis comuns ao openSUSE
+  include_vars: ../vars/suse_common.yml
+
+# Instalando o Docker
+
+- name: Instalando o Docker
+  zypper:
+    name: docker
+    state: present
+    force: yes
+  become: true
+  notify:
+    - Adicionando usuario ao grupo 'docker'
+    - Start Docker
+  tags:
+    - docker
+    - dev
+
+# Instalando o Docker Compose
+
+- name: Instalando o Docker Compose pelo PIP
+  pip:
+    name: docker-compose
+    state: present
+  become: true
+  tags:
+    - docker
+    - dev

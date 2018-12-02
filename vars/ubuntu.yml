@@ -1,0 +1,28 @@
+---
+
+pacotes_essenciais:
+  - build-essential
+  - apt-transport-https
+  - ca-certificates
+  - dkms
+  - curl
+  - software-properties-common
+  - vlc
+  - htop
+  - unzip
+  - unrar
+  - flatpak
+  - gnome-software-plugin-flatpak
+  - gnome-tweak-tool
+
+pacotes_dev:
+  - meld
+  - git
+  - subversion
+
+pacotes_codec:
+  - ubuntu-restricted-extras
+  - libavcodec-extra
+  - libdvd-pkg
+  - audacious 
+  - audacious-plugins

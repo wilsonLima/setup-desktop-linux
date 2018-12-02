@@ -1,0 +1,32 @@
+---
+
+pacotes_essenciais:
+  - deb-multimedia-keyring
+  - apt-transport-https
+  - ca-certificates 
+  - software-properties-common
+  - dkms
+  - curl
+  - gnupg2 
+  - vlc
+  - htop
+  - unzip
+  - unrar
+
+pacotes_dev:
+  - meld
+  - git
+  - subversion
+
+pacotes_codec:
+  - gstreamer1.0-libav 
+  - gstreamer1.0-plugins-bad 
+  - gstreamer1.0-vaapi
+  - lame 
+  - libfaac0
+  - libdvdcss2
+  - aacskeys 
+  - libbdplus0 
+  - ibbluray1
+  - audacious 
+  - audacious-plugins

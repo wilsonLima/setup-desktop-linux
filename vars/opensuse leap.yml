@@ -1,0 +1,3 @@
+---
+
+packman: "http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_distribution_version }}/"

@@ -1,0 +1,124 @@
+---
+
+- name: Incluindo variaveis comuns ao openSUSE
+  include_vars: ../vars/suse_common.yml
+
+# Realizando o dist-upgrade
+
+- name: Realizando o dist-upgrade
+  zypper:
+    name: '*'
+    state: dist-upgrade
+    force: yes
+    extra_args: '--from packman'
+  become: true
+  tags:
+    - repo
+    - update
+
+# Instalando pacotes essenciais
+
+- name: Instalando pacotes essenciais
+  zypper:
+    name: "{{ pacotes_essenciais }}"
+    state: latest
+    force: yes
+    oldpackage: yes
+  become: true
+  tags:
+    - default
+
+# Instalando pacotes de codecs
+
+- name: Instalando pacotes de codecs
+  zypper:
+    name: "{{ pacotes_codecs }}"
+    state: latest
+    force: yes
+    oldpackage: yes
+  become: true
+  tags:
+    - codecs
+
+# Instalando pacotes de Dev
+
+- name: Instalando pacotes de Dev
+  zypper:
+    name: "{{ pacotes_dev }}"
+    state: latest
+    force: yes
+    oldpackage: yes
+  become: true
+  tags:
+    - dev
+
+# Instalando o Google Chrome
+
+- name: Instalando o Google Chrome
+  zypper:
+    name: google-chrome-stable
+    state: present
+    force: yes
+  become: true
+  tags:
+    - chrome
+    - web
+
+# Instalando o Opera
+
+- name: Instalando o Opera
+  zypper:
+    name: opera-stable
+    state: present
+    force: yes
+  become: true
+  tags:
+    - opera
+    - web
+
+# Instalando o Skype
+
+- name: Instalando o Skype
+  zypper:
+    name: skypeforlinux
+    state: present
+    force: yes
+  become: true
+  tags:
+    - skype
+
+# Instalando o Visual Studio Code 
+
+- name: Instalando o Visual Studio Code 
+  zypper:
+    name: code
+    state: present
+    force: yes
+  become: true
+  tags:
+    - vscode
+    - dev
+
+# Instalando o Ansible
+
+- name: Instalando o PIP
+  pip:
+    name: pip
+    state: latest
+  become: true
+  tags:
+    - pip
+    - docker
+    - ansible
+    - dev
+
+# Instalando o Ansible
+
+- name: Instalando o Ansible
+  pip:
+    name: ansible
+    state: present
+  become: true
+  tags:
+    - ansible
+    - dev

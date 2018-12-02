@@ -1,0 +1,146 @@
+---
+
+- name: Atualizando todos os pacotes
+  dnf:
+    name: "*"
+    state: latest
+  become: true
+  tags:
+    - repo
+    - update
+
+# Verificando se existe KDE Plasma
+
+- name: Verificando se existe KDE Plasma
+  shell: test -f {{ ansible_user_dir }}/.config/plasma-nm
+  ignore_errors: yes 
+  register: iskde
+
+# Instalando os pacotes enssenciais
+
+- name: Instalando pacotes essenciais
+  dnf:
+    name: "{{ pacotes_essenciais }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+
+# Instalando os pacotes do Gnome
+
+- name: Adicionando pacotes do Gnome
+  when: iskde.rc == 1
+  dnf:
+    name: "{{ pacotes_gnome }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - codecs
+
+  # Instalando os pacotes do KDE
+
+- name: Adicionando pacotes do KDE Plasma
+  when: iskde.rc == 0
+  dnf:
+    name: "{{ pacotes_kde }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - codecs
+  
+# Instalando 'Development tools'
+
+- name: Instalando 'Development tools' package group
+  dnf:
+    name: '@Development tools'
+    state: present
+  become: true
+  tags:
+    - dev
+
+# Instalando 'C Development Tools and Libraries'
+
+- name: Instalando 'C Development Tools and Libraries' package group
+  dnf:
+    name: '@C Development Tools and Libraries'
+    state: present
+  become: true
+  tags:
+    - dev
+
+# Instalando 'RPM Development Tools'
+
+- name: Instalando 'RPM Development Tools' package group
+  dnf:
+    name: '@RPM Development Tools'
+    state: present
+  become: true
+  tags:
+    - dev
+
+# Instalando o Google Chrome
+
+- name: Instalando o Google Chrome
+  dnf:
+    name: google-chrome-stable
+    state: present
+  become: true
+  tags:
+    - chrome
+    - web
+
+# Instalando o Opera
+
+- name: Instalando o Opera
+  dnf:
+    name: opera-stable
+    state: present
+  become: true
+  tags:
+    - opera
+    - web
+
+# Instalando o Vivaldi
+
+- name: Instalando o Vivaldi
+  dnf:
+    name: vivaldi-stable
+    state: present
+  become: true
+  tags:
+    - vivaldi
+    - web
+
+# Instalando o Skype
+
+- name: Instalando o Skype
+  dnf:
+    name: skypeforlinux
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - skype
+
+# Instalando o Visual Studio Code
+
+- name: Instalando o Visual Studio Code
+  dnf:
+    name: code
+    state: present
+  become: true
+  tags:
+    - vscode
+    - dev
+
+# Instalando o Ansible
+
+- name: Instalando o Ansible
+  dnf:
+    name: ansible
+    state: present
+  become: true
+  tags:
+    - ansible
+    - dev

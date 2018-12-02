@@ -1,0 +1,37 @@
+---
+
+- name: Incluindo variaveis comuns ao openSUSE
+  include_vars: ../vars/suse_common.yml
+
+# Instalando o Oracle Virtualbox
+
+- name: Removendo dependencias antigas do Virtualbox
+  zypper:
+    name: "{{ pacotes_virtualbox_remove }}"
+    state: absent
+    force: yes
+  become: true
+  tags:
+    - virtualbox
+
+- name: Instalando o Oracle Virtualbox
+  zypper:
+    name: "{{ pacotes_virtualbox }}"
+    state: present
+    force: yes
+  become: true
+  notify:
+    - Adicionando usuario ao grupo 'vboxusers'
+  tags:
+    - virtualbox
+
+# Instalando o Vagrant
+
+- name: Instalando o Vagrant
+  zypper:
+    name: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm"
+    state: present
+  become: true
+  tags:
+    - vagrant
+    - virtualbox

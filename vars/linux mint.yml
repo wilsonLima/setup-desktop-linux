@@ -1,0 +1,20 @@
+---
+
+pacotes_essenciais:
+  - build-essential
+  - apt-transport-https
+  - dkms
+  - vlc
+  - htop
+  - unzip
+  - unrar
+
+pacotes_dev:
+  - meld
+  - git
+  - subversion
+
+pacotes_codec:
+  - mint-meta-codecs
+  - audacious 
+  - audacious-plugins

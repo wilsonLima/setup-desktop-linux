@@ -1,0 +1,54 @@
+---
+
+# Instalando os repositorios do rpmfusion
+
+- name: Instalando pacotes do virtualbox
+  when: ansible_distribution_major_version == "28"
+  dnf:
+    name: "{{ pacotes_virtualbox }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - virtualbox
+
+# Instalando o virtualbox
+
+- name: Adicionando repositório do Oracle VirtualBox
+  when: ansible_distribution_major_version == "28"
+  get_url:
+    url: http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+    dest: /etc/yum.repos.d/virtualbox.repo
+  become: true
+  tags:
+    - virtualbox
+
+- name: Instalando o Oracle VirtualBox
+  when: ansible_distribution_major_version == "28"
+  dnf:
+    name: "VirtualBox-{{ virtualbox_version }}"
+    state: present
+  notify:
+    - Adicionando usuario ao grupo 'vboxusers'
+  become: true
+  tags:
+    - virtualbox
+
+- name: Configurando os módulos do kernel Linux para o Oracle VirtualBox
+  when: ansible_distribution_major_version == "28"
+  command: "/usr/lib/virtualbox/vboxdrv.sh setup"
+  become: true
+  tags:
+    - virtualbox
+
+# Instalando o Vagrant
+
+- name: Instalando o Vagrant
+  when: ansible_distribution_major_version == "28"
+  dnf:
+    name: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm"
+    state: present
+  become: true
+  tags:
+    - vagrant
+    - virtualbox
