@@ -48,6 +48,26 @@ Variáveis da Role
 - vagrant_version: Versão do Vagrant.
 - virtualbox_version: versão do VirtualBox
 
+Dependências da Role 
+--------------
+
+Debian, Linux Mint e Ubuntu:
+
+- openssh-server. Ex.: sudo apt install openssh-server
+- python-apt (python 2)
+- python3-apt (python 3)
+- aptitude
+
+Fedora:
+
+- Pacote python2-dnf. Ex.: sudo dnf install python2-dnf
+- Pacote libselinux-python. Ex.: sudo dnf install libselinux-python
+
+openSUSE:
+
+- python-xml
+- rpm
+
 
 Example Playbook
 ----------------
