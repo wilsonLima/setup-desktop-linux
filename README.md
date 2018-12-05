@@ -17,6 +17,8 @@ Distribuições Suportadas pela Role
 Tags da Role 
 --------------
 
+- main: Tag a ser utilizada em conjunto com outras tags, se alguma tag for especificada no comando.
+  
 - repo: Inclui os repositórios no Sistema.
 - extras: Adiciona os repositórios de extras.
   
@@ -69,7 +71,7 @@ openSUSE:
 - rpm
 
 
-Example Playbook
+Examplo de Playbook
 ----------------
 
 Exemplo de uso da Role, com as configurações padrão:
@@ -84,7 +86,14 @@ Exemplo de uso da Role com variáveis:
       roles:
          - { role: setup-desktop-linux, docker_compose_version: 1.23.1, virtualbox_version: 5.2 }
 
-License
--------
 
-BSD
+Examplo de Comando
+----------------
+
+Comando para executar todas as tasks:
+
+    ansible-playbook -i <caminho_inventario> <caminho_playbook>
+
+Comando para executar a tag "web" (em caso de uso de tags, a tag "main" é obrigatória):
+
+    ansible-playbook -i <caminho_inventario> <caminho_playbook> --tags "main, web"

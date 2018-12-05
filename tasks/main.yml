@@ -1,11 +1,19 @@
 ---
 # tasks file for setup-desktop-linux
 
+- name: Incluindo variaveis comuns ao openSUSE
+  when: ansible_os_family == "Suse"
+  include_vars: ../vars/suse_common.yml
+  tags: 
+   - main
+
 - name: Incluindo variaveis especificas do SO
   include_vars: "{{ item }}"
   with_first_found:
    - ../vars/{{ ansible_distribution | lower }}.yml
    - ../vars/{{ ansible_os_family | lower }}.yml
+  tags: 
+   - main
 
 
 - name: Incluindo tarefas especificas para o SO
@@ -14,3 +22,5 @@
    - "{{ ansible_distribution | lower }}.yml"
    - "{{ ansible_os_family | lower }}.yml"
    - "os_defaults.yml"
+  tags: 
+   - main

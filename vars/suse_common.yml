@@ -34,10 +34,6 @@ pacotes_dev:
   - vim
   - subversion
 
-pacotes_virtualbox_remove:
-  - virtualbox-guest-kmp-default
-  - virtualbox-guest-tools
-
 pacotes_virtualbox:
   - virtualbox
   - virtualbox-qt

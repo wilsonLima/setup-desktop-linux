@@ -1,6 +1,17 @@
 ---
 
 - include_tasks: "debian_repos.yml"
+  tags: 
+   - main
+
 - include_tasks: "debian_packages.yml"
+  tags: 
+   - main
+
 - include_tasks: "debian_virtualbox.yml"
+  tags: 
+   - main
+
 - include_tasks: "debian_docker.yml"
+  tags: 
+   - main

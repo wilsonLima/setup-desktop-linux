@@ -1,8 +1,5 @@
 ---
 
-- name: Incluindo variaveis comuns ao openSUSE
-  include_vars: ../vars/suse_common.yml
-
 # Realizando o dist-upgrade
 
 - name: Realizando o dist-upgrade
