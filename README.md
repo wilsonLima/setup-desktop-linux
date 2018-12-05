@@ -71,7 +71,7 @@ openSUSE:
 - rpm
 
 
-Examplo de Playbook
+Exemplo de Playbook
 ----------------
 
 Exemplo de uso da Role, com as configurações padrão:
@@ -87,7 +87,7 @@ Exemplo de uso da Role com variáveis:
          - { role: setup-desktop-linux, docker_compose_version: 1.23.1, virtualbox_version: 5.2 }
 
 
-Examplo de Comando
+Exemplo de Comandos
 ----------------
 
 Comando para executar todas as tasks:
