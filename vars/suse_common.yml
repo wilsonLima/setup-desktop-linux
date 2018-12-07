@@ -9,6 +9,7 @@ pacotes_essenciais:
   - uget-lang
   - qbittorrent
   - steam
+  - sshpass
   - xine-browser-plugin
   - flash-player-ppapi
 
