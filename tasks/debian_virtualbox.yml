@@ -29,21 +29,10 @@
   tags:
     - virtualbox
 
-- name: Adicionando o Repositorio do Oracle Virtualbox para o Mint 18
-  when: ansible_distribution == "Linux Mint" and ansible_distribution_major_version == "18"
+- name: Adicionando o Repositorio do Oracle Virtualbox para o Linux Mint
+  when: ansible_distribution == "Linux Mint"
   apt_repository:
-    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian xenial contrib"
-    state: present
-    filename: virtualbox
-    update_cache: yes
-  become: true
-  tags:
-    - virtualbox
-
-- name: Adicionando o Repositorio do Oracle Virtualbox para para o Mint 19
-  when: ansible_distribution == "Linux Mint" and ansible_distribution_major_version == "19"
-  apt_repository:
-    repo: "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ mint_ubuntu_versions[ansible_distribution_major_version] }} contrib"
     state: present
     filename: virtualbox
     update_cache: yes
