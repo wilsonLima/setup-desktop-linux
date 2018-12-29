@@ -15,6 +15,9 @@
   shell: test -f {{ ansible_user_dir }}/.config/plasma-nm
   ignore_errors: yes 
   register: iskde
+  tags:
+    - default
+    - codecs
 
 # Instalando os pacotes enssenciais
 
@@ -24,6 +27,8 @@
     state: present
     disable_gpg_check: yes
   become: true
+  tags:
+    - default
 
 # Instalando os pacotes do Gnome
 

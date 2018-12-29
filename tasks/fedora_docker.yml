@@ -3,7 +3,7 @@
 # Instalando os repositorios do rpmfusion
 
 - name: Instalando pacote dnf-plugins-core
-  when: ansible_distribution_major_version == "28"
+  when: ansible_distribution_major_version != "29"
   dnf:
     name: dnf-plugins-core
     state: present
@@ -15,7 +15,7 @@
 # Instalando o virtualbox
 
 - name: Adicionando repositório do Docker
-  when: ansible_distribution_major_version == "28"
+  when: ansible_distribution_major_version != "29"
   get_url:
     url: https://download.docker.com/linux/fedora/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
@@ -24,7 +24,7 @@
     - docker
 
 - name: Instalando o Docker
-  when: ansible_distribution_major_version == "28"
+  when: ansible_distribution_major_version != "29"
   dnf:
     name: docker-ce
     state: present
@@ -36,7 +36,7 @@
     - docker
 
 - name: Instalando o Docker Compose
-  when: ansible_distribution_major_version == "28"
+  when: ansible_distribution_major_version != "29"
   get_url:
     url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-{{ ansible_architecture }}"
     dest: /usr/local/bin/docker-compose

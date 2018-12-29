@@ -3,4 +3,4 @@
 
 docker_compose_version: 1.23.1
 vagrant_version: 2.2.2
-virtualbox_version: 5.2
+virtualbox_version: 6.0
