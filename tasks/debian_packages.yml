@@ -109,15 +109,3 @@
   tags:
     - vscode
     - dev
-
-# Instalação do Ansible
-
-- name: Instalando os pacotes Dev
-  apt:
-    name: ansible
-    state: present
-    update_cache: yes
-  become: true
-  tags:
-    - ansible
-    - dev

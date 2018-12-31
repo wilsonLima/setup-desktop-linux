@@ -49,6 +49,18 @@
   tags:
     - dev
 
+# Instalando o Vivaldi
+
+- name: Instalando o Google Chrome
+  zypper:
+    name: vivaldi
+    state: present
+    force: yes
+  become: true
+  tags:
+    - vivaldi
+    - web
+
 # Instalando o Google Chrome
 
 - name: Instalando o Google Chrome
@@ -106,16 +118,4 @@
   tags:
     - pip
     - docker
-    - ansible
-    - dev
-
-# Instalando o Ansible
-
-- name: Instalando o Ansible
-  pip:
-    name: ansible
-    state: present
-  become: true
-  tags:
-    - ansible
     - dev

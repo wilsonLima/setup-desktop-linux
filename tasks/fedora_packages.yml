@@ -138,14 +138,3 @@
   tags:
     - vscode
     - dev
-
-# Instalando o Ansible
-
-- name: Instalando o Ansible
-  dnf:
-    name: ansible
-    state: present
-  become: true
-  tags:
-    - ansible
-    - dev

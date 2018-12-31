@@ -34,7 +34,6 @@ Tags da Role
 
 - dev: Instala os pacotes de desenvolvimento.
 - vscode: Instala o Visual Studio Code.
-- ansible: Instala o Ansible.
 
 - docker: Instala o Docker.
 - docker-compose: Instala o Docker Compose.

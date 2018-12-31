@@ -4,7 +4,6 @@ pacotes_essenciais:
   - htop 
   - tlp 
   - tlp-rdw
-  - vivaldi
   - uget 
   - uget-lang
   - qbittorrent
