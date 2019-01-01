@@ -2,7 +2,8 @@
 
 # Instalando o Oracle Virtualbox
 
-- name: Removendo dependencias antigas do Virtualbox
+- name: Removendo dependencias antigas do Virtualbox (openSUSE Leap)
+  when: ansible_distribution == "openSUSE Leap"
   shell: "zypper -n rm virtualbox-guest-kmp-default virtualbox-guest-tools"
   ignore_errors: yes 
   args:
@@ -11,14 +12,79 @@
   tags:
     - virtualbox
 
-- name: Instalando o Oracle Virtualbox
+- name: Instalando as dependencias do Oracle Virtualbox
   zypper:
     name: "{{ pacotes_virtualbox }}"
     state: present
     force: yes
+    update_cache: yes
+  become: true
+  tags:
+    - virtualbox
+
+- name: Adicionando repositório do Oracle VirtualBox (openSUSE Leap)
+  when: ansible_distribution == "openSUSE Leap"
+  get_url:
+    url: http://download.virtualbox.org/virtualbox/rpm/opensuse/virtualbox.repo
+    dest: /etc/zypp/repos.d/virtualbox.repo
+  become: true
+  tags:
+    - virtualbox
+
+- name: Adicionando repositório do Oracle VirtualBox (openSUSE Tumbleweed)
+  when: ansible_distribution == "openSUSE Tumbleweed"
+  template:
+    src: virtualbox_tumb.repo.j2
+    dest: /etc/zypp/repos.d/virtualbox.repo
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  tags:
+    - virtualbox
+
+- name: Copiando arquivo libvpx4-1.6.1-lp150.3.6.x86_64.rpm (openSUSE Tumbleweed)
+  when: ansible_distribution == "openSUSE Tumbleweed"
+  copy:
+    src: "libvpx4-1.6.1-lp150.3.6.x86_64.rpm"
+    dest: "/tmp/libvpx4-1.6.1-lp150.3.6.x86_64.rpm"
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  tags:
+    - virtualbox
+
+- name: Instalando a dependencia libvpx4-1.6.1-lp150.3.6.x86_64.rpm do Oracle Virtualbox (openSUSE Tumbleweed)
+  when: ansible_distribution == "openSUSE Tumbleweed"
+  zypper:
+    name: "/tmp/libvpx4-1.6.1-lp150.3.6.x86_64.rpm"
+    state: present
+    force: yes
+    update_cache: yes
+    oldpackage: yes
+    disable_recommends: no
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - virtualbox
+
+- name: Instalando o Oracle Virtualbox
+  zypper:
+    name: "VirtualBox-{{ virtualbox_version }}"
+    state: present
+    force: yes
+    update_cache: yes
+    disable_gpg_check: yes
   become: true
   notify:
     - Adicionando usuario ao grupo 'vboxusers'
+  tags:
+    - virtualbox
+
+- name: Configurando os módulos do kernel Linux para o Oracle VirtualBox
+  command: "/usr/lib/virtualbox/vboxdrv.sh setup"
+  become: true
   tags:
     - virtualbox
 
@@ -26,7 +92,7 @@
 
 - name: Instalando o Vagrant
   zypper:
-    name: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm"
+    name: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ ansible_architecture }}.rpm"
     state: present
     disable_gpg_check: yes
   become: true

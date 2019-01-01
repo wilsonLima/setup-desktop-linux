@@ -35,5 +35,8 @@ pacotes_dev:
   - subversion
 
 pacotes_virtualbox:
-  - virtualbox
-  - virtualbox-qt
+  - gcc
+  - make
+  - perl
+  - kernel-devel
+  - kernel-default-devel

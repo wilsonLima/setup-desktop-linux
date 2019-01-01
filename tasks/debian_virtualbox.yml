@@ -55,7 +55,7 @@
 
 - name: Instalando o Vagrant
   apt:
-    deb: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb"
+    deb: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ ansible_architecture }}.deb"
     state: present
     update_cache: yes
   become: true
