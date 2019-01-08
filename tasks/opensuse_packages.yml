@@ -51,7 +51,7 @@
 
 # Instalando o Vivaldi
 
-- name: Instalando o Google Chrome
+- name: Instalando o Vivaldi
   zypper:
     name: vivaldi
     state: present
