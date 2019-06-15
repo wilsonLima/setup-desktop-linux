@@ -6,10 +6,9 @@ Role do Ansible com passos para a pós-instalação de Desktops Linux com progra
 Distribuições Suportadas pela Role
 ------------
 
-- Debian 9 ou superior
 - Fedora 28 ou superior
 - Linux Mint 18 ou superior
-- openSUSE Leap 15 ou superior
+- openSUSE Leap 15.0 ou inferior
 - openSUSE Tumbleweed
 - Ubuntu 18.04 ou superior
 
@@ -52,7 +51,7 @@ Variáveis da Role
 Dependências da Role 
 --------------
 
-Debian, Linux Mint e Ubuntu:
+Linux Mint e Ubuntu:
 
 - openssh-server. Ex.: sudo apt install openssh-server
 - python-apt (python 2)
@@ -64,10 +63,19 @@ Fedora:
 - Pacote python2-dnf. Ex.: sudo dnf install python2-dnf
 - Pacote libselinux-python. Ex.: sudo dnf install libselinux-python
 
-openSUSE:
 
-- python-xml
-- rpm
+Exemplo de Inventario
+----------------
+
+Exemplo de arquivo de hosts: pasta_invetario/hosts
+
+    [opensuse-leap-desk]
+    IP ansible_connection=ssh ansible_ssh_user=USUARIO ansible_ssh_pass=SENHA_URUARIO ansible_become_pass=SENHA_ROOT
+
+
+Especificar interpretador python 3: pasta_invetario/group_vars/all
+
+    ansible_python_interpreter: "/usr/bin/python3"
 
 
 Exemplo de Playbook
