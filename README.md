@@ -44,9 +44,10 @@ Tags da Role
 Variáveis da Role 
 --------------
 
-- docker_compose_version: Versão do Docker Compose.
-- vagrant_version: Versão do Vagrant.
-- virtualbox_version: versão do VirtualBox
+- docker_compose_version: Versão do Docker Compose, valor padrão: 1.23.1 .
+- vagrant_version: Versão do Vagrant, valor padrão: 2.2.4 .
+- virtualbox_version: versão do VirtualBox, valor padrão: 6.0 .
+
 
 Dependências da Role 
 --------------
@@ -54,14 +55,6 @@ Dependências da Role
 Linux Mint e Ubuntu:
 
 - openssh-server. Ex.: sudo apt install openssh-server
-- python-apt (python 2)
-- python3-apt (python 3)
-- aptitude
-
-Fedora:
-
-- Pacote python2-dnf. Ex.: sudo dnf install python2-dnf
-- Pacote libselinux-python. Ex.: sudo dnf install libselinux-python
 
 
 Exemplo de Inventario
@@ -69,7 +62,7 @@ Exemplo de Inventario
 
 Exemplo de arquivo de hosts: pasta_invetario/hosts
 
-    [opensuse-leap-desk]
+    [NOME]
     IP ansible_connection=ssh ansible_ssh_user=USUARIO ansible_ssh_pass=SENHA_URUARIO ansible_become_pass=SENHA_ROOT
 
 
@@ -91,7 +84,7 @@ Exemplo de uso da Role com variáveis:
 
     - hosts: desktop
       roles:
-         - { role: setup-desktop-linux, docker_compose_version: 1.23.1, virtualbox_version: 5.2 }
+         - { role: setup-desktop-linux, docker_compose_version: 1.23.1, virtualbox_version: 6.0 }
 
 
 Exemplo de Comandos

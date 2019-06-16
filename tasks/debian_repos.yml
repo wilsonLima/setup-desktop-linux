@@ -1,20 +1,5 @@
 ---
 
-#  Adiciona Repositorio Multimedia se for Debian
-
-- name: Adicionando o Repositorio Multimedia se for o Debian
-  when: ansible_distribution == "Debian"
-  apt_repository:
-    repo: "deb http://www.deb-multimedia.org {{ ansible_distribution_release }} main non-free"
-    state: present
-    filename: multimedia
-    update_cache: yes
-  become: true
-  tags:
-    - repo
-    - codecs
-    - extras
-
 # Repositorio do Google Chrome
 
 - name: Importando a chave do repositorio do Google Chrome
