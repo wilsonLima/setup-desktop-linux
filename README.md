@@ -10,7 +10,7 @@ Distribuições Suportadas pela Role
 - Linux Mint 18 ou superior
 - openSUSE Leap 15.0 ou inferior
 - openSUSE Tumbleweed
-- Ubuntu 18.04 ou superior
+- Ubuntu 18.10 ou inferior
 
 
 Tags da Role 
