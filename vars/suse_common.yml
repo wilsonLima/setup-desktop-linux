@@ -40,3 +40,5 @@ pacotes_virtualbox:
   - perl
   - kernel-devel
   - kernel-default-devel
+
+virtualbox_version_url: 15.0

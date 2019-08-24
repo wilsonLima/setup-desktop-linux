@@ -22,8 +22,8 @@
   tags:
     - virtualbox
 
-- name: Adicionando repositório do Oracle VirtualBox (openSUSE Leap)
-  when: ansible_distribution == "openSUSE Leap"
+- name: Adicionando repositório do Oracle VirtualBox (openSUSE Leap abaixo da versão 15)
+  when: ansible_distribution == "openSUSE Leap" and not ansible_distribution_major_version == "15"
   get_url:
     url: http://download.virtualbox.org/virtualbox/rpm/opensuse/virtualbox.repo
     dest: /etc/zypp/repos.d/virtualbox.repo
@@ -31,10 +31,10 @@
   tags:
     - virtualbox
 
-- name: Adicionando repositório do Oracle VirtualBox (openSUSE Tumbleweed)
-  when: ansible_distribution == "openSUSE Tumbleweed"
+- name: "Adicionando repositório do Oracle VirtualBox (openSUSE Tumbleweed ou Leap 15)"
+  when: ansible_distribution == "openSUSE Tumbleweed" or ansible_distribution_major_version == "15"
   template:
-    src: virtualbox_tumb.repo.j2
+    src: virtualbox_suse.repo.j2
     dest: /etc/zypp/repos.d/virtualbox.repo
     owner: root
     group: root

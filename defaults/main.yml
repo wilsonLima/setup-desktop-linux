@@ -1,6 +1,6 @@
 ---
 # defaults file for setup-desktop-linux
 
-docker_compose_version: 1.23.1
-vagrant_version: 2.2.4
+docker_compose_version: 1.24.1
+vagrant_version: 2.2.5
 virtualbox_version: 6.0
