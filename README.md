@@ -6,11 +6,11 @@ Role do Ansible com passos para a pós-instalação de Desktops Linux com progra
 Distribuições Suportadas pela Role
 ------------
 
-- Fedora 29 ou inferior
+- Fedora 28 ou superior
 - Linux Mint 19.2 ou superior
-- openSUSE Leap 15.0 ou inferior
+- openSUSE Leap 42 ou superior
 - openSUSE Tumbleweed
-- Ubuntu 18.10 ou inferior
+- Ubuntu 18.04 ou superior
 
 
 Tags da Role 
@@ -18,7 +18,7 @@ Tags da Role
 
 - main: Tag a ser utilizada em conjunto com outras tags, se alguma tag for especificada no comando.
   
-- repo: Inclui os repositórios no Sistema.
+- repo: Inclui todos os repositórios da role no Sistema.
 - extras: Adiciona os repositórios de extras.
   
 - update: Realiza atualização dos pacotes.
@@ -44,8 +44,8 @@ Tags da Role
 Variáveis da Role 
 --------------
 
-- docker_compose_version: Versão do Docker Compose, valor padrão: 1.23.1 .
-- vagrant_version: Versão do Vagrant, valor padrão: 2.2.4 .
+- docker_compose_version: Versão do Docker Compose, valor padrão: 1.24.1 .
+- vagrant_version: Versão do Vagrant, valor padrão: 2.2.5 .
 - virtualbox_version: versão do VirtualBox, valor padrão: 6.0 .
 
 
