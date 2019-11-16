@@ -9,12 +9,12 @@ pacotes_essenciais:
   - qbittorrent
   - steam
   - sshpass
-  - xine-browser-plugin
-  - flash-player-ppapi
-
+  
 
 pacotes_codecs:
-  - x264 
+  - x264
+  - xine-browser-plugin
+  - flash-player-ppapi 
   - gstreamer-plugins-bad 
   - gstreamer-plugins-libav 
   - gstreamer-plugins-ugly
@@ -27,18 +27,3 @@ pacotes_codecs:
   - audacious-plugins 
   - audacious-plugins-lang 
   - audacious-plugins-extra
-
-pacotes_dev:
-  - meld
-  - git
-  - vim
-  - subversion
-
-pacotes_virtualbox:
-  - gcc
-  - make
-  - perl
-  - kernel-devel
-  - kernel-default-devel
-
-virtualbox_version_url: 15.0

@@ -36,18 +36,6 @@
   tags:
     - codecs
 
-# Pacotes Dev
-
-- name: Instalando os pacotes Dev
-  apt:
-    name: "{{ pacotes_dev }}"
-    state: present
-    update_cache: yes
-  become: true
-  tags:
-    - dev
-
-
 # Instalação do Google Chrome
 
 - name: Instalando o Google Chrome
@@ -96,16 +84,3 @@
   become: true
   tags:
     - skype
-
-
-# Instalação do Visual Studio Code
-
-- name: Instalando o Visual Studio Code
-  apt:
-    name: code
-    state: present
-    update_cache: yes
-  become: true
-  tags:
-    - vscode
-    - dev

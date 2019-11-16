@@ -37,18 +37,6 @@
   tags:
     - codecs
 
-# Instalando pacotes de Dev
-
-- name: Instalando pacotes de Dev
-  zypper:
-    name: "{{ pacotes_dev }}"
-    state: latest
-    force: yes
-    oldpackage: yes
-  become: true
-  tags:
-    - dev
-
 # Instalando o Vivaldi
 
 - name: Instalando o Vivaldi
@@ -95,27 +83,3 @@
   become: true
   tags:
     - skype
-
-# Instalando o Visual Studio Code 
-
-- name: Instalando o Visual Studio Code 
-  zypper:
-    name: code
-    state: present
-    force: yes
-  become: true
-  tags:
-    - vscode
-    - dev
-
-# Instalando o Ansible
-
-- name: Instalando o PIP
-  pip:
-    name: pip
-    state: latest
-  become: true
-  tags:
-    - pip
-    - docker
-    - dev

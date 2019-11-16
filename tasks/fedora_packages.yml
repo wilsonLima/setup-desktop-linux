@@ -17,7 +17,6 @@
   register: iskde
   tags:
     - default
-    - codecs
 
 # Instalando os pacotes enssenciais
 
@@ -40,7 +39,7 @@
     disable_gpg_check: yes
   become: true
   tags:
-    - codecs
+    - default
 
   # Instalando os pacotes do KDE
 
@@ -52,37 +51,18 @@
     disable_gpg_check: yes
   become: true
   tags:
+    - default
+
+# Instalando os codecs
+
+- name: Instalando codecs
+  dnf:
+    name: "{{ pacotes_codec }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
     - codecs
-  
-# Instalando 'Development tools'
-
-- name: Instalando 'Development tools' package group
-  dnf:
-    name: '@Development tools'
-    state: present
-  become: true
-  tags:
-    - dev
-
-# Instalando 'C Development Tools and Libraries'
-
-- name: Instalando 'C Development Tools and Libraries' package group
-  dnf:
-    name: '@C Development Tools and Libraries'
-    state: present
-  become: true
-  tags:
-    - dev
-
-# Instalando 'RPM Development Tools'
-
-- name: Instalando 'RPM Development Tools' package group
-  dnf:
-    name: '@RPM Development Tools'
-    state: present
-  become: true
-  tags:
-    - dev
 
 # Instalando o Google Chrome
 
@@ -127,14 +107,3 @@
   become: true
   tags:
     - skype
-
-# Instalando o Visual Studio Code
-
-- name: Instalando o Visual Studio Code
-  dnf:
-    name: code
-    state: present
-  become: true
-  tags:
-    - vscode
-    - dev

@@ -7,11 +7,3 @@
 - include_tasks: "opensuse_packages.yml"
   tags: 
    - main
-
-- include_tasks: "opensuse_docker.yml"
-  tags: 
-   - main
-
-- include_tasks: "opensuse_virtualbox.yml"
-  tags: 
-   - main

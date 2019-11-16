@@ -7,11 +7,3 @@
 - include_tasks: "fedora_packages.yml"
   tags: 
    - main
-
-- include_tasks: "fedora_virtualbox.yml"
-  tags: 
-   - main
-
-- include_tasks: "fedora_docker.yml"
-  tags: 
-   - main

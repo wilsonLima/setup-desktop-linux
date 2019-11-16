@@ -6,7 +6,7 @@ Role do Ansible com passos para a pós-instalação de Desktops Linux com progra
 Distribuições Suportadas pela Role
 ------------
 
-- Fedora 28 ou superior
+- Fedora 30 ou superior
 - Linux Mint 19.2 ou superior
 - openSUSE Leap 42 ou superior
 - openSUSE Tumbleweed
@@ -30,23 +30,6 @@ Tags da Role
 - opera: Instala o browser Opera.
 - vivaldi: Instala o browser Vivaldi.
 - skype: Instala o skype.
-
-- dev: Instala os pacotes de desenvolvimento.
-- vscode: Instala o Visual Studio Code.
-
-- docker: Instala o Docker.
-- docker-compose: Instala o Docker Compose.
-
-- virtualbox: Realiza a instalação do VirtualBox.
-- vagrant: Realiza a instalação do Vagrant.
-
-
-Variáveis da Role 
---------------
-
-- docker_compose_version: Versão do Docker Compose, valor padrão: 1.24.1 .
-- vagrant_version: Versão do Vagrant, valor padrão: 2.2.5 .
-- virtualbox_version: versão do VirtualBox, valor padrão: 6.0 .
 
 
 Dependências da Role 
@@ -79,12 +62,6 @@ Exemplo de uso da Role, com as configurações padrão:
     - hosts: desktop
       roles:
          - setup-desktop-linux
-
-Exemplo de uso da Role com variáveis:
-
-    - hosts: desktop
-      roles:
-         - { role: setup-desktop-linux, docker_compose_version: 1.23.1, virtualbox_version: 6.0 }
 
 
 Exemplo de Comandos
