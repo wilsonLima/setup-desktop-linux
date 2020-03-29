@@ -7,89 +7,14 @@
     name: packman
     repo: "{{ packman }}"
     state: present
+    priority: '90'
     auto_import_keys: yes
     overwrite_multiple: yes
   become: true
   tags:
     - repo
     - packman
-    - vivaldi
     - extras
-
-# Adicionando o repositorio do Google Chrome
-
-- name: Importando a chave do repositorio do Google Chrome
-  rpm_key:
-    key: https://dl.google.com/linux/linux_signing_key.pub
-    state: present
-  become: true
-  tags:
-    - repo
-    - chrome
-    - web
-
-- name: Adicionando o repositório do Google Chrome
-  zypper_repository:
-    name: Google
-    repo: http://dl.google.com/linux/chrome/rpm/stable/x86_64/
-    state: present
-    auto_import_keys: yes
-    overwrite_multiple: yes
-  become: true
-  tags:
-    - repo
-    - chrome
-    - web
-
-# Adicionando o repositorio do Opera
-
-- name: Importando a chave do repositorio do Opera
-  rpm_key:
-    key: https://rpm.opera.com/rpmrepo.key
-    state: present
-  become: true
-  tags:
-    - repo
-    - opera
-    - web
-
-- name: Copiando arquivo de repositório do Opera
-  copy:
-    src: opera-rpm.repo
-    dest: /etc/zypp/repos.d/opera.repo
-    owner: root
-    group: root
-    mode: 0644
-  become: true
-  tags:
-    - repo
-    - opera
-    - web
-
-
-# Instalando o Skype
-
-- name: Importando a chave GPG do repositorio do Skype
-  rpm_key:
-    key: https://repo.skype.com/data/SKYPE-GPG-KEY 
-    state: present
-    validate_certs: no
-  become: true
-  tags:
-    - repo
-    - skype
-
-- name: Adicionando Repositorio do Skype
-  zypper_repository:
-    name: skypeforlinux
-    repo: "https://repo.skype.com/rpm/stable"
-    state: present
-    auto_import_keys: yes
-    overwrite_multiple: yes
-  become: true
-  tags:
-    - repo
-    - skype
 
     
 # Atualizando todos os repositorios
@@ -102,5 +27,4 @@
   become: true
   tags:
     - repo
-    - vivaldi
     - update

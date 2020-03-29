@@ -6,8 +6,7 @@
   zypper:
     name: '*'
     state: dist-upgrade
-    force: yes
-    extra_args: '--from packman'
+    update_cache: yes
   become: true
   tags:
     - repo
@@ -18,9 +17,8 @@
 - name: Instalando pacotes essenciais
   zypper:
     name: "{{ pacotes_essenciais }}"
-    state: latest
-    force: yes
-    oldpackage: yes
+    state: present
+    update_cache: yes
   become: true
   tags:
     - default
@@ -30,56 +28,8 @@
 - name: Instalando pacotes de codecs
   zypper:
     name: "{{ pacotes_codecs }}"
-    state: latest
-    force: yes
-    oldpackage: yes
+    state: present
+    update_cache: yes
   become: true
   tags:
     - codecs
-
-# Instalando o Vivaldi
-
-- name: Instalando o Vivaldi
-  zypper:
-    name: vivaldi
-    state: present
-    force: yes
-  become: true
-  tags:
-    - vivaldi
-    - web
-
-# Instalando o Google Chrome
-
-- name: Instalando o Google Chrome
-  zypper:
-    name: google-chrome-stable
-    state: present
-    force: yes
-  become: true
-  tags:
-    - chrome
-    - web
-
-# Instalando o Opera
-
-- name: Instalando o Opera
-  zypper:
-    name: opera-stable
-    state: present
-    force: yes
-  become: true
-  tags:
-    - opera
-    - web
-
-# Instalando o Skype
-
-- name: Instalando o Skype
-  zypper:
-    name: skypeforlinux
-    state: present
-    force: yes
-  become: true
-  tags:
-    - skype

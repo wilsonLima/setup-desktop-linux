@@ -1,14 +1,15 @@
 setup-desktop-linux
 =========
 
-Role do Ansible com passos para a pós-instalação de Desktops Linux com programas e ferramentas mais utilizadas.
+Role do Ansible com passos para a pós-instalação de Desktops Linux com programas, codecs e repositórios extras.
 
 Distribuições Suportadas pela Role
 ------------
 
 - Fedora 30 ou superior
+- Linux Mint LMDE 3 ou superior
 - Linux Mint 19.2 ou superior
-- openSUSE Leap 42 ou superior
+- openSUSE Leap 15.0 ou superior
 - openSUSE Tumbleweed
 - Ubuntu 18.04 ou superior
 
@@ -24,12 +25,6 @@ Tags da Role
 - update: Realiza atualização dos pacotes.
 - default: Instala os pacotes essenciais.
 - codecs: Instala os codecs de audio e vídeo.
-  
-- web: Instala todos os browsers contidos na role.
-- chrome: Instala o browser Google Chrome.
-- opera: Instala o browser Opera.
-- vivaldi: Instala o browser Vivaldi.
-- skype: Instala o skype.
 
 
 Dependências da Role 
@@ -71,9 +66,9 @@ Comando para executar todas as tasks:
 
     ansible-playbook -i <caminho_inventario> <caminho_playbook>
 
-Comando para executar a tag "web" (em caso de uso de tags, a tag "main" é obrigatória):
+Comando para executar a tag "codecs" (em caso de uso de tags, a tag "main" é obrigatória):
 
-    ansible-playbook -i <caminho_inventario> <caminho_playbook> --tags "main, web"
+    ansible-playbook -i <caminho_inventario> <caminho_playbook> --tags "main, codecs"
 
 
 License

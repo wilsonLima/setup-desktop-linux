@@ -1,5 +1,7 @@
 ---
 
+# Atualizar todos os pacotes
+
 - name: Atualizando todos os pacotes
   dnf:
     name: "*"
@@ -63,47 +65,3 @@
   become: true
   tags:
     - codecs
-
-# Instalando o Google Chrome
-
-- name: Instalando o Google Chrome
-  dnf:
-    name: google-chrome-stable
-    state: present
-  become: true
-  tags:
-    - chrome
-    - web
-
-# Instalando o Opera
-
-- name: Instalando o Opera
-  dnf:
-    name: opera-stable
-    state: present
-  become: true
-  tags:
-    - opera
-    - web
-
-# Instalando o Vivaldi
-
-- name: Instalando o Vivaldi
-  dnf:
-    name: vivaldi-stable
-    state: present
-  become: true
-  tags:
-    - vivaldi
-    - web
-
-# Instalando o Skype
-
-- name: Instalando o Skype
-  dnf:
-    name: skypeforlinux
-    state: present
-    disable_gpg_check: yes
-  become: true
-  tags:
-    - skype

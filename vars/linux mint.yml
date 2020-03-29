@@ -13,6 +13,11 @@ pacotes_codec:
   - audacious 
   - audacious-plugins
 
+mint_debian_versions: {
+  "3" : "stretch",
+  "4" : "buster"
+}
+
 mint_ubuntu_versions: {
   "17" : "trusty",
   "18" : "xenial",
