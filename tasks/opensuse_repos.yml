@@ -16,7 +16,21 @@
     - packman
     - extras
 
-    
+
+- name: "Atualizando o valo da propriedade 'solver.allowVendorChange' para true no arquivo '/etc/zypp/zypp.conf'"
+  lineinfile:
+    path: "/etc/zypp/zypp.conf"
+    regexp: "solver.allowVendorChange = false"
+    line: "solver.allowVendorChange = true"
+    backrefs: yes
+    state: present
+  become: true
+  tags:
+    - repo
+    - packman
+    - extras
+
+
 # Atualizando todos os repositorios
 
 - name: Atualizando todos os repositorios

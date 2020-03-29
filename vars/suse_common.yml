@@ -9,21 +9,16 @@ pacotes_essenciais:
   - qbittorrent
   - steam
   - sshpass
-  
-
-pacotes_codecs:
-  - x264
-  - xine-browser-plugin
-  - flash-player-ppapi 
-  - gstreamer-plugins-bad 
-  - gstreamer-plugins-libav 
-  - gstreamer-plugins-ugly
   - vlc
   - smplayer 
   - smplayer-lang 
   - smplayer-skins 
   - smplayer-themes
-  - audacious-lang 
-  - audacious-plugins 
-  - audacious-plugins-lang 
-  - audacious-plugins-extra
+  
+
+pacotes_codecs: 
+  - lame 
+  - gstreamer-plugins-bad 
+  - gstreamer-plugins-ugly 
+  - gstreamer-plugins-ugly-orig-addon 
+  - vlc-codecs
