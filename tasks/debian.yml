@@ -1,9 +1,37 @@
 ---
 
-- include_tasks: "debian_repos.yml"
-  tags: 
-   - main
+# Atualizando todos os pacotes
 
-- include_tasks: "debian_packages.yml"
-  tags: 
-   - main
+- name: Atualizando todos os pacotes
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
+  become: true
+  tags:
+    - repo
+    - update
+
+# Pacotes essenciais
+
+- name: Instalando os pacotes essenciais
+  apt:
+    name: "{{ pacotes_essenciais }}"
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - default
+
+
+# Pacotes de Codec
+
+- name: Instalando os pacotes de codecs
+  apt:
+    name: "{{ pacotes_codec }}"
+    state: present
+    update_cache: yes
+  become: true
+  tags:
+    - codecs
