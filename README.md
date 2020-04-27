@@ -7,7 +7,7 @@ Distribuições Suportadas pela Role
 ------------
 
 - Fedora 30 ou superior
-- Linux Mint LMDE 3 ou superior
+- Linux Mint LMDE 4 ou superior
 - Linux Mint 19.2 ou superior
 - openSUSE Leap 15.0 ou superior
 - openSUSE Tumbleweed
@@ -74,4 +74,4 @@ Comando para executar a tag "codecs" (em caso de uso de tags, a tag "main" é ob
 License
 -------
 
-MIT License
+MIT
