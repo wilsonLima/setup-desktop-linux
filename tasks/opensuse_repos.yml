@@ -17,7 +17,7 @@
     - extras
 
 
-- name: "Atualizando o valo da propriedade 'solver.allowVendorChange' para true no arquivo '/etc/zypp/zypp.conf'"
+- name: "Atualizando o valor da propriedade 'solver.allowVendorChange' para true no arquivo '/etc/zypp/zypp.conf'"
   lineinfile:
     path: "/etc/zypp/zypp.conf"
     regexp: "solver.allowVendorChange = false"

@@ -65,3 +65,15 @@
   become: true
   tags:
     - codecs
+
+# Copiando o script de updates
+
+- name: "Copiando o script de atualização de S.O."
+  copy:
+    src: "fedora/update.sh"
+    dest: "{{ ansible_user_dir }}/update.sh"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_real_group_id }}"
+    mode: "a+x"
+  tags:
+    - default

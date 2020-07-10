@@ -8,9 +8,7 @@ pacotes_essenciais:
   - lzip
   - qbittorrent
   - unrar
-  - steam
   - uget
-  - dropbox
 
 pacotes_gnome:
   - gnome-tweak-tool
