@@ -1,5 +1,6 @@
 ---
 
+
 # Realizando o dist-upgrade
 
 - name: Realizando o dist-upgrade
@@ -11,6 +12,19 @@
   tags:
     - repo
     - update
+
+
+# Realizando o dist-upgrade
+
+- name: Realizando o Update
+  zypper:
+    name: '*'
+    state: latest
+  become: true
+  tags:
+    - repo
+    - update
+
 
 # Instalando pacotes essenciais
 
