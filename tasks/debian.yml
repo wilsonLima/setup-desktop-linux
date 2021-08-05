@@ -8,6 +8,7 @@
     state: latest
     update_cache: yes
     force_apt_get: yes
+    cache_valid_time: 7200
   become: true
   tags:
     - repo
@@ -19,7 +20,6 @@
   apt:
     name: "{{ pacotes_essenciais }}"
     state: present
-    update_cache: yes
   become: true
   tags:
     - default
@@ -31,7 +31,6 @@
   apt:
     name: "{{ pacotes_codec }}"
     state: present
-    update_cache: yes
   become: true
   tags:
     - codecs
