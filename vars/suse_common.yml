@@ -21,4 +21,3 @@ pacotes_codecs:
   - gstreamer-plugins-bad 
   - gstreamer-plugins-ugly 
   - gstreamer-plugins-ugly-orig-addon 
-  - vlc-codecs
