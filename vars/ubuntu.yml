@@ -9,7 +9,6 @@ pacotes_essenciais:
   - htop
   - unzip
   - unrar
-  - gnome-tweak-tool
 
 
 pacotes_codec:
