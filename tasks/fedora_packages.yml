@@ -14,8 +14,8 @@
 # Verificando se existe KDE Plasma
 
 - name: Verificando se existe KDE Plasma
-  shell: test -f {{ ansible_user_dir }}/.config/plasma-nm
-  ignore_errors: yes 
+  shell: test -f {{ ansible_user_dir }}/.config/plasma-rc
+  ignore_errors: true
   register: iskde
   tags:
     - default
